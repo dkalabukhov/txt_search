@@ -71,6 +71,26 @@ def ask_word() -> str | None:
     return None
 
 
+def ask_case_sensitive() -> bool | None:
+    questions: list[dict[str, Any]] = [
+        {
+            "type": "confirm",
+            "message": "Учитывать регистр при поиске?",
+            "default": False,
+        }
+    ]
+    try:
+        result = prompt(questions)
+        value = result[0]
+    except KeyboardInterrupt:
+        return None
+
+    if isinstance(value, bool):
+        return value
+
+    return None
+
+
 def normalize_path(raw: str) -> str:
     p = raw.strip()
     if len(p) >= 2 and p[0] == p[-1] and p[0] in ('"', "'", '“', '”'):
