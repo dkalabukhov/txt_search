@@ -63,8 +63,16 @@ difference between "no files to search" and "word not found".
 
 ## Testing
 
-Run the follwowing command from the project root:
+Run the following command from the project root:
 
 ```bash
 uv run pytest -v
+```
+
+## Building an .exe
+
+Run the following command from the project root:
+
+```bash
+uv run pyinstaller --onefile --paths=./src --copy-metadata readchar src/txt_search/main.py
 ```
