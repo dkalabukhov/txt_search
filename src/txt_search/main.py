@@ -57,4 +57,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    finally:
+        input('\nНажмите Enter, чтобы завершить программу...')
