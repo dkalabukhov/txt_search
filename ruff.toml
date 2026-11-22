@@ -3,10 +3,8 @@ line-length = 80
 [lint]
 preview = true
 select = ["E", "F", "I", "C90", "UP", "B", "S", "FURB", "RUF"]
-allowed-confusables = ["с"]
+ignore = ["ambiguous-unicode-character-string", "ambiguous-unicode-character-docstring", "ambiguous-unicode-character-comment"]
 
 [lint.per-file-ignores]
-# В init-модулях допустимы неиспользуемые импорты
 "__init__.py" = ["unused-import"]
-# assert в тестах это норма pytest
 "tests/**" = ["assert"]
