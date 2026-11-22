@@ -3,8 +3,8 @@ from txt_search.input_helper import (
     ask_folder,
     ask_recursive,
     ask_word,
+    normalize_path,
     validate_folder,
-    normalize_path
 )
 from txt_search.searcher import find_txt_files, search_in_files
 
