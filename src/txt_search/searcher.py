@@ -1,5 +1,6 @@
 import os
 import re
+from pathlib import Path
 
 
 def find_txt_files(folder: str, recursive: bool) -> list[str]:
@@ -40,17 +41,16 @@ def _read_text(path: str) -> str | None:
     Сначала UTF-8, при неудаче — Windows-1251.
     Возвращает None, если файл прочитать не удалось.
     """
+    p = Path(path)
     try:
-        with open(path, "r", encoding="utf-8") as f:
-            return f.read()
+        return p.read_text(encoding="utf-8")
     except UnicodeDecodeError:
         pass
     except OSError:
         return None
 
     try:
-        with open(path, "r", encoding="cp1251") as f:
-            return f.read()
+        return p.read_text(encoding="cp1251")
     except (OSError, UnicodeDecodeError):
         return None
 
